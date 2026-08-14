@@ -32,7 +32,7 @@ jobs:
       - run:
           name: Run Django Tests
           command: |
-            python MyProject/manage.py test bankapp
+            python src/app.py
 
   build-and-validate-docker:
     machine:
@@ -54,7 +54,7 @@ jobs:
             echo "Django responded with status code: $RESPONSE_CODE"
             if [ "$RESPONSE_CODE" -ne 200 ] && [ "$RESPONSE_CODE" -ne 302 ]; then
               echo "Smoke test validation failed! Received code: $RESPONSE_CODE"
-              docker logs ccabank_test
+              docker logs mlapp_test
               exit 1
             fi
             echo "Validation successful!"
