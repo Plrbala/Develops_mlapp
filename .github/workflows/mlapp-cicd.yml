@@ -4,17 +4,17 @@ on:
   push:
     branches: [ main, Main ]
     paths:
-      - 'mlapp/**'
+      - '/**'
       - '.github/workflows/mlapp-cicd.yml'
   pull_request:
     branches: [ main, Main ]
     paths:
-      - 'mlapp/**'
+      - '/**'
       - '.github/workflows/mlapp-cicd.yml'
 
 jobs:
   lint-and-test:
-    name: Lint & Run Unit Tests123
+    name: Lint & Run Unit Tests 123
     runs-on: ubuntu-latest
     defaults:
       run:
