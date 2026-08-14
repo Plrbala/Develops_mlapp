@@ -14,7 +14,7 @@ on:
 
 jobs:
   lint-and-test:
-    name: Lint & Run Unit Tests 123
+    name: Lint & Run Unit Tests 5188
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -62,7 +62,7 @@ jobs:
       - name: Build Docker Image Locally
         uses: docker/build-push-action@v5
         with:
-          context: mlapp
+          context: .
           file: ./Dockerfile
           tags: neuraledu-predictor:local
           outputs: type=docker,dest=/tmp/myimage.tar
@@ -134,7 +134,7 @@ jobs:
       - name: Build and Push Docker Image
         uses: docker/build-push-action@v5
         with:
-          context: mlapp
+          context: .
           file: ./Dockerfile
           push: true
           tags: ${{ steps.meta.outputs.tags }}
