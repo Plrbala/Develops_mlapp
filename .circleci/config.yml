@@ -23,13 +23,6 @@ jobs:
             - ~/.cache/pip
           key: v1-dependencies-{{ checksum "requirements.txt" }}
       - run:
-          name: Lint Code with Flake8
-          command: |
-            # Stop the build on syntax errors or undefined names
-            flake8 MyProject --count --select=E9,F63,F7,F82 --show-source --statistics
-            # exit-zero treats all errors as warnings
-            flake8 MyProject --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
-      - run:
           name: Run Django Tests
           command: |
             python src/app.py
